@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -79,10 +80,10 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'btredb',
-        'USER':'postgres',
-        'PASSWORD':'5843',
-        'HOST':'localhost'
+        'NAME': 'btredb',
+        'USER': 'postgres',
+        'PASSWORD': '5843',
+        'HOST': 'localhost'
     }
 }
 
@@ -92,7 +93,6 @@ DATABASES = {
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
 
 
 # Password validation
@@ -131,8 +131,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS =[
-    os.path.join(BASE_DIR,'btre/static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'btre/static')
 ]
+
+# Medea Folder Settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
