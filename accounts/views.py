@@ -25,9 +25,9 @@ def register(request):
                     messages.error(request, 'That email is being used')
                     return redirect('register')
                 else:
-                 # Looks good
                     user = User.objects.create_user(
-                        username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+                        username=username, password=password, email=email,
+                        first_name=first_name, last_name=last_name)
                 # If you want to login after register,
                 # auth.login(request,user)
                 # messagers.success(request, 'You are now logged in')
@@ -49,10 +49,10 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user =auth.authenticate(username=username, password=password)
+        user = auth.authenticate(username=username, password=password)
         if user is not None:
-            auth.login(request,user)
-            messages.success(request,'You are now logged in')
+            auth.login(request, user)
+            messages.success(request, 'You are now logged in')
             return redirect('dashboard')
         else:
             messages.error(request, 'Invalid credentials වැරදියි')
@@ -70,5 +70,3 @@ def logout(request):
 
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')
-
-
