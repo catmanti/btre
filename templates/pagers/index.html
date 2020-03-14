@@ -11,8 +11,7 @@
           <h1 class="display-4 mb-4">
             Property Searching Just Got So Easy
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
+          <p class="lead">You can search thousands of listings all over the country! You can also filter your search with districts, cities, prices, additional features you want like pools, garages, loans etc</p>
           <div class="search">
             <form action="{% url 'search' %}">
               <!-- Form Row 1 -->
@@ -30,7 +29,7 @@
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">State</label>
                   <select name="state" class="form-control">
-                    <option selected="true" disabled="disabled">State (All)</option>
+                    <option selected="true" disabled="disabled">Districs (All)</option>
                      {% for key,value in state_choices.items %}
                         <option value="{{key}}">{{ value }}</option>
                      {% endfor %} 
@@ -81,7 +80,7 @@
               <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
               <div class="card-img-overlay">
                 <h2>
-                  <span class="badge badge-secondary text-white">${{listing.price | intcomma }}</span>
+                  <span class="badge badge-secondary text-white">Rs{{listing.price | intcomma }}</span>
                 </h2>
               </div>
               <div class="card-body">
